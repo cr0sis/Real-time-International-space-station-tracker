@@ -1,6 +1,8 @@
 import ISS_Info
 import turtle
 import time
+import json
+import urllib.request
 
 screen = turtle.Screen()
 screen.setup(720,360)
@@ -11,6 +13,25 @@ screen.title("Real time ISS tracker")
 
 iss = turtle.Turtle()
 iss.shape("iss.gif")
+
+# Home
+hlat = -2.8650
+hlon = 54.07036
+
+prediction = turtle.Turtle()
+prediction.penup()
+prediction.color('yellow')
+prediction.goto(hlat,hlon)
+prediction.dot(5)
+prediction.hideturtle()
+
+url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(hlat) + '&lon=' + str(hlon)
+response = urllib.request.urlopen(url)
+result = json.loads(response.read())
+
+over = result ['response'][1]['risetime']
+prediction.write(time.ctime(over))    
+
 
 iss.penup()   ### Avoid a line being drawn from initiliation to first coord
 iss.pen(pencolor="red", pensize=1) 
@@ -36,3 +57,8 @@ while True:
       iss.goto(float(lon),float(lat))
       iss.pendown()
       time.sleep(5)
+
+
+
+
+    

@@ -8,5 +8,8 @@
  turtle is a pre-installed Python library that enables users to create pictures and shapes by providing them with a virtual canvas.
 
 # Time:
- time module provides various time-related functions.
+ Time module provides various time-related functions.
+ 
+# Historic tracking:
+ Function added to see where the station has been over time.
 

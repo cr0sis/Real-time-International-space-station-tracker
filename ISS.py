@@ -24,7 +24,7 @@ while True:
     pos = iss.pos() 
     posx = iss.xcor()
     print(posx)
-    if iss.xcor() >= (179):                 ### Lift up at the right edge of  
+    if iss.xcor() >= (179.1):                 ### Lift up at the right edge of  
         iss.penup()                         ### the screen to avoid drawing a 
         iss.goto(float(lon),float(lat))     ### horizontal wrap round line
         time.sleep(5)

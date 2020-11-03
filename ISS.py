@@ -13,7 +13,7 @@ iss = turtle.Turtle()
 iss.shape("iss.gif")
 
 iss.penup()
-iss.pen(pencolor="red", outline=2)
+iss.pen(pencolor="red", pensize=1)
 
 
 while True:           

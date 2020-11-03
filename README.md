@@ -13,3 +13,5 @@
 # Historic tracking:
  Function added to see where the station has been over time.
 
+# Screen Clearing:
+ Hit space if screen gets too busy with historic lines

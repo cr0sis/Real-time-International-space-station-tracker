@@ -15,3 +15,6 @@
 
 # Screen Clearing:
  Hit space if screen gets too busy with historic lines
+ 
+# Passover Prediction:
+ Plug the lat/lon figures into the passover prediction logic section (or comment out with # as needed) to see when the next flyover occurs. 

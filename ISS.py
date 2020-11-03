@@ -11,14 +11,24 @@ screen.title("Real time ISS tracker")
 
 iss = turtle.Turtle()
 iss.shape("iss.gif")
+
 iss.penup()
 iss.pen(pencolor="red", outline=2)
 
-while True:    
+
+while True:           
     location = ISS_Info.iss_current_loc()
     lat = location['iss_position']['latitude']
     lon = location['iss_position']['longitude']
     print("Position: \n latitude: {}, longitude: {}".format(lat,lon))
-    iss.goto(float(lon),float(lat))
-    iss.pendown()
-    time.sleep(5)
+    pos = iss.pos() 
+    posx = iss.xcor()
+    print(posx)
+    if iss.xcor() >= (179):                 ### Lift up at the right edge of  
+        iss.penup()                         ### the screen to avoid drawing a 
+        iss.goto(float(lon),float(lat))     ### horizontal wrap round line
+        time.sleep(5)
+    else:
+      iss.goto(float(lon),float(lat))
+      iss.pendown()
+      time.sleep(5)

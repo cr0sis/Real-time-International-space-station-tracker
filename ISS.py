@@ -38,7 +38,6 @@ iss.pen(pencolor="red", pensize=1)
 
 def wipe():
     iss.clear()
-    prediction.clear()
 
 screen.onkey(wipe, "space")### Allow us to clear history with spacebar 
 screen.listen()            ### if screen gets too busy over time

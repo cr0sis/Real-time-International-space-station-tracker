@@ -1,3 +1,5 @@
+
+
 import ISS_Info
 import turtle
 import time
@@ -8,11 +10,35 @@ screen = turtle.Screen()
 screen.setup(720,360)
 screen.setworldcoordinates(-180,-90,180,90)
 screen.bgpic("world.png")
+screen.bgcolor("black")
 screen.register_shape("iss.gif")
 screen.title("Real time ISS tracker")
 
 iss = turtle.Turtle()
 iss.shape("iss.gif")
+iss.setheading(45)
+iss.penup()   ### Avoid a line being drawn from initiliation to first coord
+iss.pen(pencolor="red", pensize=1)
+
+
+astronauts = turtle.Turtle()
+astronauts.penup()
+astronauts.color('purple')
+astronauts.goto(-178,86)
+astronauts.hideturtle()
+url = "http://api.open-notify.org/astros.json"
+response = urllib.request.urlopen(url)
+result = json.loads(response.read())
+print("There are currently " + str(result["number"]) + " astronauts in space:")
+print("")
+
+people = result["people"]
+
+for p in people:
+    print(p["name"] + " on board spacecraft: " + p["craft"])
+    astronauts.write(p["name"] + " on board spacecraft: " + p["craft"])
+    astronauts.sety(astronauts.ycor() - 6)
+
 
 # Home
 hlat = -2.8650
@@ -25,16 +51,15 @@ prediction.goto(hlat,hlon)
 prediction.dot(5)
 prediction.hideturtle()
 
-url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(hlat) + '&lon=' + str(hlon) ### Grab UTC time of next pass over at coords above
+url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(hlat) + '&lon=' + str(hlon)
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
 
-over = result ['response'][1]['risetime']   ### Convert UTC to human readable time and date format
-prediction.write(time.ctime(over))    ### Print result to screen at coords
+over = result ['response'][1]['risetime']
+prediction.write(time.ctime(over))    
 
 
-iss.penup()   ### Avoid a line being drawn from initialisation to first coord
-iss.pen(pencolor="red", pensize=1) 
+ 
 
 def wipe():
     iss.clear()
@@ -57,8 +82,3 @@ while True:
       iss.goto(float(lon),float(lat))
       iss.pendown()
       time.sleep(5)
-
-
-
-
-    

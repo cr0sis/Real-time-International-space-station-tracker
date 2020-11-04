@@ -25,15 +25,15 @@ prediction.goto(hlat,hlon)
 prediction.dot(5)
 prediction.hideturtle()
 
-url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(hlat) + '&lon=' + str(hlon)
+url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(hlat) + '&lon=' + str(hlon) ### Grab UTC time of next pass over at coords above
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
 
-over = result ['response'][1]['risetime']
-prediction.write(time.ctime(over))    
+over = result ['response'][1]['risetime']   ### Convert UTC to human readable time and date format
+prediction.write(time.ctime(over))    ### Print result to screen at coords
 
 
-iss.penup()   ### Avoid a line being drawn from initiliation to first coord
+iss.penup()   ### Avoid a line being drawn from initialisation to first coord
 iss.pen(pencolor="red", pensize=1) 
 
 def wipe():

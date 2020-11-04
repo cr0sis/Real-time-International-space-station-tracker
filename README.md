@@ -1,4 +1,4 @@
-# Real-time-International-space-station-tracker
+# Real-Time International Space Station Tracker
 
 ![Image](https://i.imgur.com/5L6NHTM.png)
 

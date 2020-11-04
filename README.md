@@ -12,6 +12,9 @@
 # Time:
  Time module provides various time-related functions.
  
+# Json:
+ Used to get current astronauts in space - figure and names and to predict future passovers.
+
 # Historic tracking:
  Function added to see where the station has been over time.
 

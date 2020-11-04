@@ -1,5 +1,3 @@
-
-
 import ISS_Info
 import turtle
 import time
@@ -11,15 +9,14 @@ screen.setup(720,360)
 screen.setworldcoordinates(-180,-90,180,90)
 screen.bgpic("map.png")
 screen.bgcolor("black")
-screen.register_shape("iss.gif")
+screen.register_shape("isss.gif")
 screen.title("Real time ISS tracker")
 
 iss = turtle.Turtle()
-iss.shape("iss.gif")
+iss.shape("isss.gif")
 iss.setheading(45)
 iss.penup()   ### Avoid a line being drawn from initiliation to first coord
 iss.pen(pencolor="red", pensize=1)
-
 
 astronauts = turtle.Turtle()
 astronauts.penup()
@@ -29,9 +26,8 @@ astronauts.hideturtle()
 url = "http://api.open-notify.org/astros.json"
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
-print("There are currently " + str(result["number"]) + " astronauts in space:")
-print("")
-
+##print("There are currently " + str(result["number"]) + " astronauts in space:")
+##print("")
 people = result["people"]
 
 for p in people:
@@ -39,27 +35,20 @@ for p in people:
     astronauts.write(p["name"] + " on board spacecraft: " + p["craft"])
     astronauts.sety(astronauts.ycor() - 6)
 
-
 # Home
 hlat = -2.8650
 hlon = 54.07036
-
 prediction = turtle.Turtle()
 prediction.penup()
 prediction.color('yellow')
 prediction.goto(hlat,hlon)
 prediction.dot(5)
 prediction.hideturtle()
-
 url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(hlat) + '&lon=' + str(hlon)
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
-
 over = result ['response'][1]['risetime']
 prediction.write(time.ctime(over))    
-
-
- 
 
 def wipe():
     iss.clear()

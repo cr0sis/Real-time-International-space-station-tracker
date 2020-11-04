@@ -14,41 +14,51 @@ screen.title("Real time ISS tracker")
 
 iss = turtle.Turtle()
 iss.shape("isss.gif")
-iss.setheading(45)
+
+
 iss.penup()   ### Avoid a line being drawn from initiliation to first coord
 iss.pen(pencolor="red", pensize=1)
+style = ('Arial', 7, 'bold')
 
 astronauts = turtle.Turtle()
 astronauts.penup()
-astronauts.color('purple')
+astronauts.color('black')
 astronauts.goto(-178,86)
 astronauts.hideturtle()
 url = "http://api.open-notify.org/astros.json"
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
-##print("There are currently " + str(result["number"]) + " astronauts in space:")
-##print("")
+print("There are currently " + str(result["number"]) + " astronauts in space:")
+print("")
+astronauts.write("People in space: " + str(result["number"]), font=style)
+astronauts.sety(astronauts.ycor() - 5)
+
 people = result["people"]
 
 for p in people:
-    print(p["name"] + " on board spacecraft: " + p["craft"])
-    astronauts.write(p["name"] + " on board spacecraft: " + p["craft"])
-    astronauts.sety(astronauts.ycor() - 6)
+    print(p["name"] + " on: " + p["craft"])
+    astronauts.write(p["name"] + " on: " + p["craft"], font=style)
+    astronauts.sety(astronauts.ycor() - 5)
 
 # Home
-hlat = -2.8650
-hlon = 54.07036
+lat = -2.8650
+lon = 58.07036
+
 prediction = turtle.Turtle()
 prediction.penup()
 prediction.color('yellow')
-prediction.goto(hlat,hlon)
+prediction.goto(lat,lon)
 prediction.dot(5)
 prediction.hideturtle()
-url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(hlat) + '&lon=' + str(hlon)
+
+url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(lat) + '&lon=' + str(lon)
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
+
 over = result ['response'][1]['risetime']
-prediction.write(time.ctime(over))    
+
+prediction.write(time.ctime(over), font=style) 
+
 
 def wipe():
     iss.clear()
@@ -56,7 +66,8 @@ def wipe():
 screen.onkey(wipe, "space")### Allow us to clear history with spacebar 
 screen.listen()            ### if screen gets too busy over time
 
-while True:       
+while True:  
+     
     location = ISS_Info.iss_current_loc()
     lat = location['iss_position']['latitude']
     lon = location['iss_position']['longitude']

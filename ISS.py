@@ -18,7 +18,81 @@ iss.shape("isss.gif")
 
 iss.penup()   ### Avoid a line being drawn from initiliation to first coord
 iss.pen(pencolor="red", pensize=1)
-style = ('Arial', 7, 'bold')
+style = ('Arial', 8, 'bold')
+
+# Home
+lat = 58.07036 
+lon = -2.8650
+
+prediction = turtle.Turtle()
+prediction.penup()
+prediction.color('yellow')
+prediction.goto(lon,lat)
+prediction.dot(5)
+prediction.hideturtle()
+
+url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(lat) + '&lon=' + str(lon)
+response = urllib.request.urlopen(url)
+result = json.loads(response.read())
+
+over = result ['response'][1]['risetime']
+
+prediction.write(time.ctime(over), font=style) 
+
+
+# Houston
+lat = 31.760427
+lon = -95.369804
+
+prediction.penup()
+prediction.color('orange')
+prediction.goto(lon,lat)
+prediction.dot(5)
+prediction.hideturtle()
+
+url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(lat) + '&lon=' + str(lon)
+response = urllib.request.urlopen(url)
+result = json.loads(response.read())
+
+over = result ['response'][1]['risetime']
+
+prediction.write(time.ctime(over), font=style)
+
+# Monqui
+lat = 44.9777
+lon = -93.2650
+
+prediction.penup()
+prediction.color('pink')
+prediction.goto(lon,lat)
+prediction.dot(5)
+prediction.hideturtle()
+
+url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(lat) + '&lon=' + str(lon)
+response = urllib.request.urlopen(url)
+result = json.loads(response.read())
+
+over = result ['response'][1]['risetime']
+
+prediction.write(time.ctime(over), font=style)
+
+# Cunin
+lat = 45.9144
+lon = 13.2752
+
+prediction.penup()
+prediction.color('blue')
+prediction.goto(lon,lat)
+prediction.dot(5)
+prediction.hideturtle()
+
+url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(lat) + '&lon=' + str(lon)
+response = urllib.request.urlopen(url)
+result = json.loads(response.read())
+
+over = result ['response'][1]['risetime']
+
+prediction.write(time.ctime(over), font=style)
 
 astronauts = turtle.Turtle()
 astronauts.penup()
@@ -39,26 +113,6 @@ for p in people:
     print(p["name"] + " on: " + p["craft"])
     astronauts.write(p["name"] + " on: " + p["craft"], font=style)
     astronauts.sety(astronauts.ycor() - 5)
-
-# Home
-lat = -2.8650
-lon = 58.07036
-
-prediction = turtle.Turtle()
-prediction.penup()
-prediction.color('yellow')
-prediction.goto(lat,lon)
-prediction.dot(5)
-prediction.hideturtle()
-
-url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(lat) + '&lon=' + str(lon)
-response = urllib.request.urlopen(url)
-result = json.loads(response.read())
-
-over = result ['response'][1]['risetime']
-
-prediction.write(time.ctime(over), font=style) 
-
 
 def wipe():
     iss.clear()
@@ -82,3 +136,5 @@ while True:
       iss.goto(float(lon),float(lat))
       iss.pendown()
       time.sleep(5)
+
+ 

@@ -9,7 +9,7 @@ import urllib.request
 screen = turtle.Screen()
 screen.setup(720,360)
 screen.setworldcoordinates(-180,-90,180,90)
-screen.bgpic("world.png")
+screen.bgpic("map.png")
 screen.bgcolor("black")
 screen.register_shape("iss.gif")
 screen.title("Real time ISS tracker")

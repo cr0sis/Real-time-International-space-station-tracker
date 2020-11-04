@@ -1,6 +1,6 @@
 # Real-Time International Space Station Tracker
 
-![Image](https://i.imgur.com/5L6NHTM.png)
+![Image](https://i.imgur.com/7ZseNIS.png)
 
 # ISS-Info:
  Python wrapper for tracking information about International Space Station (ISS) via http://open-notify.org

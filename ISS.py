@@ -20,7 +20,7 @@ iss.penup()   ### Avoid a line being drawn from initiliation to first coord
 iss.pen(pencolor="red", pensize=1)
 style = ('Arial', 8, 'bold')
 
-# Home
+# North West England
 lat = 58.07036 
 lon = -2.8650
 
@@ -58,7 +58,7 @@ over = result ['response'][1]['risetime']
 
 prediction.write(time.ctime(over), font=style)
 
-# Monqui
+# Minneapolis
 lat = 44.9777
 lon = -93.2650
 
@@ -76,7 +76,7 @@ over = result ['response'][1]['risetime']
 
 prediction.write(time.ctime(over), font=style)
 
-# Cunin
+# North Italy
 lat = 45.9144
 lon = 13.2752
 

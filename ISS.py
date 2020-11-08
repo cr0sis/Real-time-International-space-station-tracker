@@ -16,13 +16,13 @@ iss = turtle.Turtle()
 iss.shape("isss.gif")
 
 
-iss.penup()   ### Avoid a line being drawn from initiliation to first coord
+iss.penup()   ### Avoid a line being drawn from initilisation to first coord
 iss.pen(pencolor="red", pensize=1)
 style = ('Arial', 8, 'bold')
 
-# North West England
-lat = 58.07036 
-lon = -2.8650
+# Home
+lat = 54.06459 
+lon = -2.9062
 
 prediction = turtle.Turtle()
 prediction.penup()
@@ -41,8 +41,8 @@ prediction.write(time.ctime(over), font=style)
 
 
 # Houston
-lat = 31.760427
-lon = -95.369804
+lat = 29.640427
+lon = -95.279804
 
 prediction.penup()
 prediction.color('orange')
@@ -58,9 +58,9 @@ over = result ['response'][1]['risetime']
 
 prediction.write(time.ctime(over), font=style)
 
-# Minneapolis
-lat = 44.9777
-lon = -93.2650
+# Monqui
+lat = 45.08003
+lon = -93.2967
 
 prediction.penup()
 prediction.color('pink')
@@ -76,7 +76,7 @@ over = result ['response'][1]['risetime']
 
 prediction.write(time.ctime(over), font=style)
 
-# North Italy
+# Cunin
 lat = 45.9144
 lon = 13.2752
 

@@ -81,7 +81,7 @@ lat = 45.9144
 lon = 13.2752
 
 prediction.penup()
-prediction.color('blue')
+prediction.color('light blue')
 prediction.goto(lon,lat)
 prediction.dot(5)
 prediction.hideturtle()

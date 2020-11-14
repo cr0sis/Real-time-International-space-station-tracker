@@ -25,4 +25,4 @@
  Plug the lat/lon figures into the passover prediction logic section (or comment out with # as needed) to see when the next flyover occurs. 
  
 # Special Thanks: 
- This project would not be possible without the code base found https://github.com/codex-learn/Real-time-International-space-station-tracker here.
+ This project would not be possible without the code base found at https://github.com/codex-learn/Real-time-International-space-station-tracker

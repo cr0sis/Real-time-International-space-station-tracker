@@ -2,7 +2,7 @@ import ISS_Info
 import turtle
 import time
 import json
-import urllib.request
+import urllib.request\
 
 screen = turtle.Screen()
 screen.setup(720,360)
@@ -14,13 +14,11 @@ screen.title("Real time ISS tracker")
 
 iss = turtle.Turtle()
 iss.shape("isss.gif")
-
-
 iss.penup()   ### Avoid a line being drawn from initilisation to first coord
 iss.pen(pencolor="red", pensize=1)
 style = ('Arial', 8, 'bold')
 
-# Home
+'''# Home
 lat = 54.06459 
 lon = -2.9062
 
@@ -31,16 +29,16 @@ prediction.goto(lon,lat)
 prediction.dot(5)
 prediction.hideturtle()
 
-url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(lat) + '&lon=' + str(lon)
+url = 'http://api.open-notify.org/iss-now.json?lat=' +str(lat) + '&lon=' + str(lon)
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
 
-over = result ['response'][1]['risetime']
+#over = result ['response'][1]['risetime']
 
-prediction.write(time.ctime(over), font=style) 
+#prediction.write(time.ctime(over), font=style)
 
 
-# Houston
+ Houston
 lat = 29.640427
 lon = -95.279804
 
@@ -50,13 +48,13 @@ prediction.goto(lon,lat)
 prediction.dot(5)
 prediction.hideturtle()
 
-url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(lat) + '&lon=' + str(lon)
+url = 'http://api.open-notify.org/iss-now.json?lat=' +str(lat) + '&lon=' + str(lon)
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
 
-over = result ['response'][1]['risetime']
+#over = result ['response'][1]['risetime']
 
-prediction.write(time.ctime(over), font=style)
+#prediction.write(time.ctime(over), font=style)
 
 # Monqui
 lat = 45.08003
@@ -68,13 +66,13 @@ prediction.goto(lon,lat)
 prediction.dot(5)
 prediction.hideturtle()
 
-url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(lat) + '&lon=' + str(lon)
+url = 'http://api.open-notify.org/iss-now.json?lat=' +str(lat) + '&lon=' + str(lon)
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
 
-over = result ['response'][1]['risetime']
+#over = result ['response'][1]['risetime']
 
-prediction.write(time.ctime(over), font=style)
+#prediction.write(time.ctime(over), font=style)
 
 # Cunin
 lat = 45.9144
@@ -86,13 +84,13 @@ prediction.goto(lon,lat)
 prediction.dot(5)
 prediction.hideturtle()
 
-url = 'http://api.open-notify.org/iss-pass.json?lat=' +str(lat) + '&lon=' + str(lon)
+url = 'http://api.open-notify.org/iss-now.json?lat=' +str(lat) + '&lon=' + str(lon)
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
 
-over = result ['response'][1]['risetime']
+#over = result ['response'][1]['risetime']
 
-prediction.write(time.ctime(over), font=style)
+#prediction.write(time.ctime(over), font=style) '''
 
 astronauts = turtle.Turtle()
 astronauts.penup()
